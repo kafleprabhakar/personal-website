@@ -20,6 +20,7 @@ $text-color: #333;
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
+// Rebooting styles
 *, *:before, *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -44,6 +45,7 @@ ul.list-unstyled {
     padding-left: 0;
 }
 
+// Custom styling
 header#site-header {
     padding-top: 12px;
     padding-bottom: 8px;
@@ -62,4 +64,17 @@ header#site-header {
             text-decoration: underline;
         }
     }
+}
+
+footer#site-footer {
+    background: $primary-color;
+    color: white;
+    padding: 8px 0;
+    a {
+        color: white;
+    }
+}
+
+main {
+    padding: 32px 0;
 }

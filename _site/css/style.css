@@ -5058,4 +5058,17 @@ header#site-header #site-navbar a:hover {
   text-decoration: underline;
 }
 
+footer#site-footer {
+  background: #369;
+  color: white;
+  padding: 8px 0;
+}
+footer#site-footer a {
+  color: white;
+}
+
+main {
+  padding: 32px 0;
+}
+
 /*# sourceMappingURL=style.css.map */
