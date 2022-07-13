@@ -1,3 +1,65 @@
+// Functions first
+@import "../../node_modules/bootstrap/scss/functions";
+
+// Variable overrides second
+$primary-color: #369;
+$light-gray-color: #ddd;
+$text-color: #333;
+// $enable-shadows: true;
+// $prefix: "mo-";
+
+// Required Bootstrap imports
+@import "../../node_modules/bootstrap/scss/variables";
+// @import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// Optional components
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body {
     font-family: sans-serif;
+    margin: 0;
+    color: $text-color;
+}
+
+a {
+    color: $primary-color;
+    &:hover {
+        color: black;
+    }
+}
+
+ul.list-unstyled {
+    list-style: none;
+    padding-left: 0;
+}
+
+header#site-header {
+    padding-top: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $light-gray-color;
+    h1#site-logo {
+        margin-bottom: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    #site-navbar {
+        a.active {
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
 }

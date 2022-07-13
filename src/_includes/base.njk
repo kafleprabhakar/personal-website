@@ -1,3 +1,14 @@
+---js
+{
+  navigationOptions: {
+    listClass: "d-flex list-unstyled justify-content-around",
+    listItemClass: "col-auto px-2",
+    activeListItemClass: "active",
+    activeAnchorClass: "active"
+  }
+}
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +18,22 @@
     <title>{{ title }}</title>
   </head>
   <body>
-    {{ content | safe }}
+    <header id="site-header">
+      <div class="container">
+        <div class="row flex-column flex-md-row justify-content-between align-items-center">
+          <h1 id="site-logo" class="col-auto">
+            <a href="/">Prabhakar Kafle</a>
+          </h1>
+          <nav id="site-navbar" class="col-12 col-md-auto">
+            {{ collections.all | eleventyNavigation | eleventyNavigationToHtml(navigationOptions) | safe }}
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+      <div class="container">
+        {{ content | safe }}
+      </div>
+    </main>
   </body>
 </html>

@@ -5,6 +5,7 @@ module.exports = function(eleventyConfig) {
 		files: './_site/css/**/*.css'
 	});
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
+    eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
     return {
         dir: {
             input: "src"
