@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;700&display=swap");
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -21,7 +22,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #0d6efd;
+  --bs-primary: #369;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -29,7 +30,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 13, 110, 253;
+  --bs-primary-rgb: 51, 102, 153;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -1411,7 +1412,7 @@
 }
 
 .border-primary {
-  border-color: #0d6efd !important;
+  border-color: #369 !important;
 }
 
 .border-secondary {
@@ -5023,7 +5024,8 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Encode sans", sans-serif;
+  line-height: 1.5em;
   margin: 0;
   color: #333;
 }
@@ -5038,6 +5040,10 @@ a:hover {
 ul.list-unstyled {
   list-style: none;
   padding-left: 0;
+}
+
+.container {
+  max-width: 960px !important;
 }
 
 header#site-header {
@@ -5069,6 +5075,13 @@ footer#site-footer a {
 
 main {
   padding: 32px 0;
+}
+main #home-page #profile-photo {
+  width: 100%;
+  max-width: 300px;
+  padding: 2px;
+  border-radius: 50%;
+  border: 1px solid #369;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -6,6 +6,7 @@ module.exports = function(eleventyConfig) {
 	});
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+    eleventyConfig.addPassthroughCopy("src/images");
     return {
         dir: {
             input: "src"

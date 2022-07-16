@@ -2,7 +2,7 @@
 @import "../../node_modules/bootstrap/scss/functions";
 
 // Variable overrides second
-$primary-color: #369;
+$primary: #369;
 $light-gray-color: #ddd;
 $text-color: #333;
 // $enable-shadows: true;
@@ -20,6 +20,8 @@ $text-color: #333;
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;700&display=swap');
+
 // Rebooting styles
 *, *:before, *:after {
     -moz-box-sizing: border-box;
@@ -28,13 +30,14 @@ $text-color: #333;
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Encode sans', sans-serif;
+    line-height: 1.5em;
     margin: 0;
     color: $text-color;
 }
 
 a {
-    color: $primary-color;
+    color: $primary;
     &:hover {
         color: black;
     }
@@ -43,6 +46,10 @@ a {
 ul.list-unstyled {
     list-style: none;
     padding-left: 0;
+}
+
+.container {
+    max-width: 960px !important;
 }
 
 // Custom styling
@@ -67,7 +74,7 @@ header#site-header {
 }
 
 footer#site-footer {
-    background: $primary-color;
+    background: $primary;
     color: white;
     padding: 8px 0;
     a {
@@ -77,4 +84,13 @@ footer#site-footer {
 
 main {
     padding: 32px 0;
+    #home-page {
+        #profile-photo {
+            width: 100%;
+            max-width: 300px;
+            padding: 2px;
+            border-radius: 50%;
+            border: 1px solid $primary;
+        }
+    }
 }
