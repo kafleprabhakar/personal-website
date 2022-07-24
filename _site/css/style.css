@@ -5025,7 +5025,7 @@
 
 body {
   font-family: "Encode sans", sans-serif;
-  line-height: 1.5em;
+  line-height: 1.5;
   margin: 0;
   color: #333;
 }
@@ -5053,6 +5053,7 @@ header#site-header {
 }
 header#site-header h1#site-logo {
   margin-bottom: 0;
+  font-weight: normal;
 }
 header#site-header a {
   text-decoration: none;
@@ -5076,12 +5077,22 @@ footer#site-footer a {
 main {
   padding: 32px 0;
 }
+main #site-page #page-title {
+  font-size: 2.2em;
+  line-height: 1.2;
+}
 main #home-page #profile-photo {
   width: 100%;
   max-width: 300px;
   padding: 2px;
   border-radius: 50%;
   border: 1px solid #369;
+}
+main #blog-content .blog-meta {
+  color: #888;
+  padding-left: 12px;
+  padding-bottom: 12px;
+  border-bottom: 3px dotted #ddd;
 }
 
 /*# sourceMappingURL=style.css.map */

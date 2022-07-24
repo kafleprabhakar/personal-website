@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+<article id="blog-content">
+    <header>
+        <h2 id="page-title">{{ title }}</h2>
+        <div class="blog-meta fst-italic">
+            Created: {{ created | getDateString }} | Last Modified: {{ page.date | getDateString }} |
+            {% for tag in tags %}
+                #{{ tag }}
+            {% endfor %}
+        </div>
+    </header>
+    {{ content | safe }}
+</article>

@@ -4,6 +4,7 @@
 // Variable overrides second
 $primary: #369;
 $light-gray-color: #ddd;
+$muted-text-color: #888;
 $text-color: #333;
 // $enable-shadows: true;
 // $prefix: "mo-";
@@ -31,7 +32,7 @@ $text-color: #333;
 
 body {
     font-family: 'Encode sans', sans-serif;
-    line-height: 1.5em;
+    line-height: 1.5;
     margin: 0;
     color: $text-color;
 }
@@ -59,6 +60,7 @@ header#site-header {
     border-bottom: 1px solid $light-gray-color;
     h1#site-logo {
         margin-bottom: 0;
+        font-weight: normal;
     }
     a {
         text-decoration: none;
@@ -84,6 +86,14 @@ footer#site-footer {
 
 main {
     padding: 32px 0;
+    // Common style for all the pages
+    #site-page {
+        #page-title {
+            font-size: 2.2em;
+            line-height: 1.2;
+        }
+    }
+    // Style specific to homepage
     #home-page {
         #profile-photo {
             width: 100%;
@@ -91,6 +101,15 @@ main {
             padding: 2px;
             border-radius: 50%;
             border: 1px solid $primary;
+        }
+    }
+    // Styles specific to blog posts
+    #blog-content {
+        .blog-meta {
+            color: $muted-text-color;
+            padding-left: 12px;
+            padding-bottom: 12px;
+            border-bottom: 3px dotted $light-gray-color;
         }
     }
 }
