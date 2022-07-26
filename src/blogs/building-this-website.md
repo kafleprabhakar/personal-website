@@ -4,6 +4,7 @@ title: "Rebuilding my personal website"
 tags: [technology, web-dev]
 date: Last Modified
 created: 2022-07-25
+summary: Why I decided to redo this website, my inspirations, and the design decisions that I took.
 ---
 I built the [previous version](https://kafleprabhakar.github.io/) of my personal website during the summer before starting college. I had some experience with JavaScript and CSS through projects I had worked on during my gap years. But all of them were multi-page "traditional" websites with plain JS or jQuery. But everyone on the internet seemed to be rooting for some javascript framework or the other. Who was I to not succumb to this force! So after some research *(read googling)*, I decided to use [Gatsby](https://www.gatsbyjs.com/).
 

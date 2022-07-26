@@ -6,8 +6,8 @@ module.exports = function(eleventyConfig) {
 	});
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+    // Date Filter for modified and created date
     eleventyConfig.addNunjucksFilter("getDateString", function(date_obj) {
-        console.log({date_obj});
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const date = date_obj.getUTCDate();
         const month = date_obj.getUTCMonth();
@@ -15,6 +15,14 @@ module.exports = function(eleventyConfig) {
         return `${months[month]} ${date}, ${year}`;
     });
     eleventyConfig.addPassthroughCopy("src/images");
+
+    eleventyConfig.addCollection("allBlogs", function(collectionApi) {
+        return collectionApi.getAll().filter(function(page) {
+            console.log({page});
+            return page.data.layout === 'blog';
+        });
+    });
+    
     return {
         dir: {
             input: "src"
