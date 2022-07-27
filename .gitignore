@@ -1,5 +1,6 @@
 # Custom Files
 .DS_Store
+*.ai
 
 # Generated files
 package/generated*
