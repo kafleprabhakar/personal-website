@@ -21,7 +21,7 @@ $text-color: #333;
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;600&display=swap');
 
 // Rebooting styles
 *, *:before, *:after {
@@ -110,6 +110,28 @@ main {
             padding-left: 12px;
             padding-bottom: 12px;
             border-bottom: 3px dotted $light-gray-color;
+        }
+    }
+    // Styles specific to web CV page
+    #web-cv-page {
+        #cv-skills {
+            .cv-skill-cat {
+                .skill-list {
+                    padding-left: 15px;
+                    .cv-skill {
+                        margin-right: 5px;
+                        display: inline-block;
+                        a {
+                            color: $text-color;
+                            text-decoration: none;
+                            background: rgba($primary, 0.1);
+                            padding: 0 3px;
+                            border-radius: 3px;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
         }
     }
 }

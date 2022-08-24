@@ -14,11 +14,13 @@ module.exports = function(eleventyConfig) {
         const year = date_obj.getUTCFullYear();
         return `${months[month]} ${date}, ${year}`;
     });
+    eleventyConfig.addNunjucksFilter("stringify", (object) => {
+        return JSON.stringify(object)
+    })
     eleventyConfig.addPassthroughCopy("src/images");
 
     eleventyConfig.addCollection("allBlogs", function(collectionApi) {
         return collectionApi.getAll().filter(function(page) {
-            console.log({page});
             return page.data.layout === 'blog';
         });
     });
