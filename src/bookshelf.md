@@ -1,5 +1,5 @@
 ---
 layout: base
-eleventyNavigation:
-    key: Shelf
+# eleventyNavigation:
+#     key: Shelf
 ---

@@ -1,5 +1,5 @@
 ---
 layout: base
-eleventyNavigation:
-    key: Photography
+# eleventyNavigation:
+#     key: Photography
 ---

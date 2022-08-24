@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Web-CV
+eleventyNavigation:
+    key: Web CV
 ---
 <div id="web-cv-page">
     <h2 class="text-center">Web CV</h2>
@@ -25,22 +27,39 @@ title: Web-CV
             <em>Candidate for Bachelor's in Science in Computer Science | GPA: 5/5</em>
             <section id="cv-coursework">
                 <h4 class="text-primary">CourseWork</h4>
-                <ul>
+                <table class="cv-table">
                     {% for semester in cvData.education.courseWork %}
-                        <li class="subsection-item">
-                            <strong> {{ semester.title }} </strong>
-                            <br />
-                            <em> {{ semester.courses }} </em>
-                        </li>
+                        <tr>
+                            <td><strong> {{ semester.title }} </strong></td>
+                            <td><em> {{ semester.courses }} </em></td>
+                        </tr>
                     {% endfor %}
-                </ul>
+                </table>
             </section>
     </section>
     {# --------------- Work Experience Section --------------- #}
-    <section id="cv-experience" class="cv-section">
+    <section id="cv-work" class="cv-section">
         <h3 class="text-primary">Work Experience</h3>
         <div class="cv-section-content">
-        {% for item in cvData.experience %}
+        {% for item in cvData.work %}
+            <div class="cv-item">
+                <strong>{{ item.title }}</strong>
+                <br />
+                <em>{{ item.summary }}</em>
+                <ul>
+                    {% for point in item.description %}
+                        <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+    {# --------------- Research Experience Section --------------- #}
+    <section id="cv-research" class="cv-section">
+        <h3 class="text-primary">Research Experience</h3>
+        <div class="cv-section-content">
+        {% for item in cvData.research %}
             <div class="cv-item">
                 <strong>{{ item.title }}</strong>
                 <br />
@@ -75,11 +94,13 @@ title: Web-CV
     {# --------------- Other Activities Section --------------- #}
     <section id="cv-skills" class="cv-section">
         <h3 class="text-primary">Technical Skills</h3>
-        <div class="cv-section-content">
-        {% for category in cvData.skills %}
-            <div class="cv-skill-cat d-flex flex-column flex-sm-row align-items-sm-center">
-                <h4 class="m-0">{{ category.title }}</h4>
-                <div class="skill-list">
+        <table class="cv-table">
+            {% for category in cvData.skills %}
+            <tr class="cv-skill-cat">
+                <td>
+                    <h4 class="m-1">{{ category.title }}</h4>
+                </td>
+                <td class="skill-list">
                     {% for item in category.specifics %}
                     <span class="cv-skill">
                         <a>{{ item.title }}</a>
@@ -88,9 +109,9 @@ title: Web-CV
                         {% endif %}
                     </span>
                     {% endfor %}
-                </div>
-            </div>
-        {% endfor %}
-        </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     </section>
 </div>

@@ -40,36 +40,15 @@
                 }
             ]
         },
-        "experience": [
+        "work": [
             {
-                "title": "Computer Science and Artificial Intelligence Lab, MIT",
-                "summary": "Undergraduate Researcher",
-                "location": "Cambridge, MA",
-                "date": "June 2021-May 2022",
+                "title": "Balbix",
+                "summary": "Software Engineering Intern",
+                "location": "San Jose, CA",
+                "date": "June-August 2022",
                 "description": [
-                    "Designed deep-learning pipeline based on multi-modal framework to extract field of interest from real life invoices",
-                    "Achieved an F1 score of 0.93 with <2 hrs of training on an invoice dataset",
-                    "Designed an end-to-end user interface to interact with the document processing algorithms developed in the lab"
-                ]
-            },
-            {
-                "title": "Computer Science and Artificial Intelligence Lab, MIT",
-                "summary": "Undergraduate Researcher",
-                "location": "Cambridge, MA",
-                "date": "September 2019-December 2020",
-                "description": [
-                    "Implemented APIs for private versions of Machine Learning and optimization (Differential Privacy) and Federated Learning",
-                    "Built a secure backend architecture and front-end for a web interface to interactively try out basic Differential Privacy and Federated Learning"
-                ]
-            },
-            {
-                "title": "Department of Urban Studies and Planning, MIT",
-                "summary": "Undergraduate Researcher",
-                "location": "Cambridge, MA",
-                "date": "February-August 2020",
-                "description": [
-                    "Worked on data pre-processing and engineering to analyze Call Data Records of Sierra Leone to provide insights on mobility pattern to help in forming policies around COVID-19",
-                    "Programmed, and deployed in AWS, the backend and APIs for Visualize NYC 2021 web interface to share and visualize vision for New York City"
+                    "Integrated Jira Ticketing system to the platform enabling customers to create Jira Issues of actionables directly from Balbix dashboard",
+                    "Helped the platform automate accounting in the AAA (authenticate, authorize, accounting) cyber-risk framework"
                 ]
             },
             {
@@ -80,6 +59,39 @@
                 "description": [
                     "Designed WordPress themes for websites- Oya Opportunities and Oya School",
                     "Led a team of 4 people in research and website development of Oya School- a platform for information on colleges abroad"
+                ]
+            }
+        ],
+        "research": [
+            {
+                "title": "Document Processing Lab",
+                "summary": "Computer Science and Artificial Intelligence Lab, MIT",
+                "location": "Cambridge, MA",
+                "date": "June 2021-May 2022",
+                "description": [
+                    "Designed deep-learning pipeline based on multi-modal framework to extract field of interest from real life invoices",
+                    "Achieved an F1 score of 0.93 with <2 hrs of training on an invoice dataset",
+                    "Designed an end-to-end user interface to interact with the document processing algorithms developed in the lab"
+                ]
+            },
+            {
+                "title": "Decentralized Information Group",
+                "summary": "Computer Science and Artificial Intelligence Lab, MIT",
+                "location": "Cambridge, MA",
+                "date": "September 2019-December 2020",
+                "description": [
+                    "Implemented APIs for private versions of Machine Learning and optimization (Differential Privacy) and Federated Learning",
+                    "Built a secure backend architecture and front-end for a web interface to interactively try out basic Differential Privacy and Federated Learning"
+                ]
+            },
+            {
+                "title": "Civic Data Design Lab",
+                "summary": "Department of Urban Studies and Planning, MIT",
+                "location": "Cambridge, MA",
+                "date": "February-August 2020",
+                "description": [
+                    "Worked on data pre-processing and engineering to analyze Call Data Records of Sierra Leone to provide insights on mobility pattern to help in forming policies around COVID-19",
+                    "Programmed, and deployed in AWS, the backend and APIs for Visualize NYC 2021 web interface to share and visualize vision for New York City"
                 ]
             }
         ],

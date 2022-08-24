@@ -6,6 +6,7 @@ $primary: #369;
 $light-gray-color: #ddd;
 $muted-text-color: #888;
 $text-color: #333;
+$sm-breakpoint: 576px;
 // $enable-shadows: true;
 // $prefix: "mo-";
 
@@ -114,10 +115,28 @@ main {
     }
     // Styles specific to web CV page
     #web-cv-page {
+        .cv-table {
+            border-collapse: collapse;
+            tr {
+                border-bottom: 1px dotted $light-gray-color;
+                td {
+                    padding: 8px 0;
+                }
+                td:first-child {
+                    white-space: nowrap;
+                    text-align: right;
+                    padding-right: 12px;
+                }
+                @media (max-width: $sm-breakpoint) {
+                    td {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
         #cv-skills {
             .cv-skill-cat {
                 .skill-list {
-                    padding-left: 15px;
                     .cv-skill {
                         margin-right: 5px;
                         display: inline-block;
