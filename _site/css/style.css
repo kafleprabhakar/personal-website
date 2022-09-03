@@ -5097,6 +5097,9 @@ main #blog-content .blog-meta {
   padding-bottom: 12px;
   border-bottom: 3px dotted #ddd;
 }
+main #page-404 h2 {
+  font-size: xxx-large;
+}
 main #web-cv-page .cv-table {
   border-collapse: collapse;
 }

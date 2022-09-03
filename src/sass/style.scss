@@ -114,6 +114,12 @@ main {
             border-bottom: 3px dotted $light-gray-color;
         }
     }
+    // Styles specific to 404 page
+    #page-404 {
+        h2 {
+            font-size: xxx-large;
+        }
+    }
     // Styles specific to web CV page
     #web-cv-page {
         .cv-table {
