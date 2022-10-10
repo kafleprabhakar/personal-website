@@ -16,8 +16,10 @@ module.exports = function(eleventyConfig) {
     });
     eleventyConfig.addNunjucksFilter("stringify", (object) => {
         return JSON.stringify(object)
-    })
+    });
+
     eleventyConfig.addPassthroughCopy("src/images");
+    eleventyConfig.addPassthroughCopy("src/files");
 
     eleventyConfig.addCollection("allBlogs", function(collectionApi) {
         return collectionApi.getAll().filter(function(page) {
