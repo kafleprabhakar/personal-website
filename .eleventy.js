@@ -20,6 +20,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("src/images");
     eleventyConfig.addPassthroughCopy("src/files");
+    eleventyConfig.addPassthroughCopy("_redirects");
 
     eleventyConfig.addCollection("allBlogs", function(collectionApi) {
         return collectionApi.getAll().filter(function(page) {
