@@ -37,6 +37,14 @@
                 {
                     "title": "Spring 2022",
                     "courses": "Advances in Computer Vision, Real Analysis, Introduction to Psychological Science, Psychology and Economics, Managerial Finance"
+                },
+                {
+                    "title": "Fall 2022",
+                    "courses": "Operating Systems Engineering, Database Systems, Introduction to Photography and Related Media, Introduction to Solid-State Chemistry"
+                },
+                {
+                    "title": "Spring 2023",
+                    "courses": "Distributed Systems, Computer Systems Engineering, Financial Market Dynamics, Introduction to Operations Management, Paradox and Infinity"
                 }
             ]
         },
@@ -114,6 +122,12 @@
                     "Built a collaborative online space for students and faculty to work together and teach in small groups",
                     "Ran trail in 3 MIT classes and used in one for the Fall 2020 semester"
                 ]
+            },
+            {
+                "title": "Teaching Assistant",
+                "summary": "Introduction to Machine Learning",
+                "date": "September 2022-May 2023",
+                "description": []
             }
         ],
         "skills": [
@@ -122,6 +136,9 @@
                 "specifics": [
                     {
                         "title": "Python"
+                    },
+                    {
+                        "title": "Go"
                     },
                     {
                         "title": "Java",
