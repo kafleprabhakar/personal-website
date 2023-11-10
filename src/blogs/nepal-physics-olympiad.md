@@ -80,6 +80,7 @@ If you see the above questions, you can find that preliminary round consists of 
 - [Errors and their propagation](/files/Errors-and-their-Propagation.pdf)
 - [E=mc² ρhysics Ωlympiad-question](/files/Emc2.pdf)
 - [Sample Question E=mc² ρhysics Ωlympiad](/files/sample-Emc2.pdf)
+- [A Guide to Nepal Physics Olympiad](https://github.com/gitty-coder/physics-olympiad-book) by Laxman Bist, Nabin Kalauni and Sandesh Parajuli; Nepali representatives to IPhO 2018
 
 ### Which book should I follow?
 
