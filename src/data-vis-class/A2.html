@@ -22,16 +22,16 @@
 			<h3>Overall Analysis Questions</h3>
 			<ol>
 				<li>
-                    <strong>Which neighborhoods have had the highest increase in corporate ownership in the last 20 years?</strong>
-                    <p>As the <a href="https://www.propublica.org/article/when-private-equity-becomes-your-landlord" target="_blank">Pro Publica article</a> we read in the first assignment depicts, corporates try to squeeze profit when they take ownership of the properties. This translates to rent hike and degraded facilities for the renters. So I want to see which areas in Boston have had the highest increse in corporate ownership of the properties.</p>
+                    <strong>Which communities have the highest corporate ownership over the last 20 years?</strong>
+                    <p>As the <a href="https://www.propublica.org/article/when-private-equity-becomes-your-landlord" target="_blank">Pro Publica article</a> we read in the first assignment depicts, corporates try to squeeze profit when they take ownership of the properties. This translates to rent hike and degraded facilities for the renters. So I want to see which communities in Boston might have been affected due to high corporate ownership of the properties.</p>
                 </li>
 				<li>
                     <strong>Which communities would be most affected if a housing unit were to be evicted in terms of number of people affected?</strong>
-                    <p>While eviction would be devastating for anyone, it would be especially difficult for larger families/groups. As someone from a background where large non-nuclear families are very common, I can see it would be devastating if a family with babies and older people is to be evacuated.</p>
+                    <p>Eviction would be devastating for anyone. But as someone from a background where large non-nuclear families are very common, I can assume it would be especially devastating if larger family/group with babies and older people is to be evacuated. So with this question, I want to see the density of people per residential unit and any underlying pattern to it.</p>
                 </li>
 				<li>
-                    <strong>How does the change to corporate ownership affect the occupancy rate?</strong>
-                    <p>The linked articles in both the first and second assignments point to the fact that when corporate landlords take over, there could be evictions and could result in hiked price. This could result in more vacant units. So I want to see there is any relation between corporate ownership and occupancy rate.
+                    <strong>How does the change in corporate ownership affect the vacancy rate or units?</strong>
+                    <p>The linked articles in both the first and second assignments point to data and anectodes that when corporate landlords take over, evictions and rent hikes are common. This could result in more vacant units. So I want to see there is any relation between corporate ownership and occupancy rate.
                     </p>
                 </li>
 			</ol>
@@ -68,7 +68,7 @@
             </p>
 
             <p>
-                First I tried plotting the population data of different neighborhoods on a map. I came across two data quality issues in the process. Firstly, the dataset mapping ZIP codes to neighborhoods only had ZIP codes as 4-digit nunmbers instead of 5. But Tableau did not seem to have issues interpreting it by prepending 0 to it. Secondly, the neighborhoods in zip code dataset do not exactly match that in the main data. Map in figure 2 shows the issue. The main dataset seems to be missing data on Mission Hill and Back Bay. Also, the ZIP code CSV does not have ZIP code for Fenway- a neighborhood present in the main dataset. So for the rest of the analysis, I have tried to avoid using the ZIP code dataset.
+                First I tried plotting the population data of different neighborhoods on a map. I came across two data quality issues in the process. Firstly, the dataset mapping ZIP codes to neighborhoods only had ZIP codes as 4-digit nunmbers instead of 5. But Tableau did not seem to have issues interpreting it by prepending 0 to it. Secondly, the neighborhoods in zip code dataset do not exactly match that in the main data. Map in figure 2 shows the issue. The main dataset seems to be missing data on Mission Hill and Back Bay. Also, the ZIP code CSV does not have ZIP code for Fenway- a neighborhood present in the main dataset. So for the rest of the analysis, I have tried to avoid using the ZIP code dataset wherever other forms of visualizations could be used informatively.
             </p>
 
             <figure class="figure">
@@ -181,7 +181,7 @@
             </p>
 
             <figure class="figure">
-				<img src="../../images/vis-class/density_no_clg.png" alt="Number of people in one residential unit in different neighborhoods." />
+				<img src="../../images/vis-class/density_map.png" alt="Number of people in one residential unit in different neighborhoods." />
 				<figcaption>
 				Number of people in one residential unit in different neighborhoods (after removing Longwood and Fenway).
 				</figcaption>
