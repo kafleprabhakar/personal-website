@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 2</title>
+	<link rel="stylesheet" href="/css/data-vis.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Prabhakar Kafle</strong> — <em>pkafle@mit.edu</em>
+		</p>
+	</header>
+	<main>
+        <h2>Subtheme: Corporate landlord and eviction</h2>
+		<section>
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>
+                    <strong>Which neighborhoods have had the highest increase in corporate ownership in the last 20 years?</strong>
+                    <p>As the <a href="https://www.propublica.org/article/when-private-equity-becomes-your-landlord" target="_blank">Pro Publica article</a> we read in the first assignment depicts, corporates try to squeeze profit when they take ownership of the properties. This translates to rent hike and degraded facilities for the renters. So I want to see which areas in Boston have had the highest increse in corporate ownership of the properties.</p>
+                </li>
+				<li>
+                    <strong>Which communities would be most affected if a housing unit were to be evicted in terms of number of people affected?</strong>
+                    <p>While eviction would be devastating for anyone, it would be especially difficult for larger families/groups. As someone from a background where large non-nuclear families are very common, I can see it would be devastating if a family with babies and older people is to be evacuated.</p>
+                </li>
+				<li>
+                    <strong>How does the change to corporate ownership affect the occupancy rate?</strong>
+                    <p>The linked articles in both the first and second assignments point to the fact that when corporate landlords take over, there could be evictions and could result in hiked price. This could result in more vacant units. So I want to see there is any relation between corporate ownership and occupancy rate.
+                    </p>
+                </li>
+			</ol>
+		</section>
+        <hr color="#eee" />
+		<section>
+            <h3>Dataset Overview</h3>
+            The given dataset is a concatenation of the following two datasets:
+            <ul>
+                <li>
+                    <strong>Census data</strong> contains demographic data of different neighborhoods in Boston from some unspecified year. There are three major groups of data:
+                    <ul>
+                        <li>0-17 and 18+ age group population of different races (African American, Asian American and Pacific Islanders (AAPI), Hispanic, American Indian and Alaska Native (AIAN), mixed, and others)</li>
+                        <li>Population of people living in different group housing (college, nursing, military, etc)</li>
+                        <li>Number of vacant and occupied residential units</li>
+                    </ul>
+                </li><li>
+                    <strong>Corporate ownership and occupancy</strong> dataset contains the rate of corporate ownership and owner occupancy of residential units year-over-year over a period of 20 years from 2004-2024.
+                </li>
+            </ul>
+            <p>
+                Both the datasets are at a granularity of neighborhoods and each neighborhood can span from 1 to 12 ZIP codes. In addition, we also have data of which neighborhood spans which ZIP codes.
+            </p>
+
+            <figure class="figure">
+				<img src="../../images/vis-class/population_trend.png" alt="Population across different years" />
+				<figcaption>
+				An attempt to see the population trend across different neighborhoods.
+				</figcaption>
+			</figure>
+
+            <p>
+                One of the biggest limiting factor of the dataset on first glance is the fact that the population is only from one year repeated across all the years. Initially I had thought of exploring temporal trend in demographic changes in relation to increase in corporate ownership of residential units. But I had to revise my question.
+            </p>
+
+            <p>
+                First I tried plotting the population data of different neighborhoods on a map. I came across two data quality issues in the process. Firstly, the dataset mapping ZIP codes to neighborhoods only had ZIP codes as 4-digit nunmbers instead of 5. But Tableau did not seem to have issues interpreting it by prepending 0 to it. Secondly, the neighborhoods in zip code dataset do not exactly match that in the main data. Map in figure 2 shows the issue. The main dataset seems to be missing data on Mission Hill and Back Bay. Also, the ZIP code CSV does not have ZIP code for Fenway- a neighborhood present in the main dataset. So for the rest of the analysis, I have tried to avoid using the ZIP code dataset.
+            </p>
+
+            <figure class="figure">
+				<img src="../../images/vis-class/population_map.png" alt="Population in different neighborhoods" />
+				<figcaption>
+				Population distribution across different neighborhoods in Boston.
+				</figcaption>
+			</figure>
+
+            <hr color="#eee" />
+			<h3>Discoveries & Insights</h3>
+            <p>
+                First of all, I want to get an overarching picture of the trend in owner occupancy rate and corporate ownership rates over the last 20 years.
+            </p>
+			
+            <figure class="figure">
+				<img src="../../images/vis-class/occ.png" alt="Temporal trend in owner occupancy rate" />
+				<figcaption>
+				Trend in owner occupancy rate across different neighborhoods in Boston from 2004 to 2024. The top and bottom 3 neighborhoods in 2024 are highlighted.
+				</figcaption>
+			</figure>
+
+            <p>
+                West Roxbury, Hyde Park, and Roslindale seem to have the highest owner occupancy rate throughout the period where as Fenway, Longwood, and Allston have had the lowest figures historically. These neighborhoods are highlighted in the graph and I will be using them to analyse the first question I posed. One trend common in almost all the neighborhoods is that they all have steadily decreasing owner occupancy rate over the period. I suspected this to be somewhat fueled by corporate ownership as corporate owners own multiple buildings but do not themselves live there. The following graph charts the trend in corporate ownership rates:
+            </p>
+
+			<figure class="figure">
+				<img src="../../images/vis-class/corp.png" alt="Temporal trend in owner occupancy rate" />
+				<figcaption>
+				Trend in corporate ownership rate across different neighborhoods in Boston from 2004 to 2024. Same 6 neighborhoods from previous graph are highlighted
+				</figcaption>
+			</figure>
+
+            <p>
+                Similar trend as owner occupancy rate can be seen in this graph too but in reverse order. There is a general upward trend in corporate ownership across all neighborhoods. Also the ones with higher owner occupancy have lower corporate ownership and vice versa. This confirms my suspicion. <em>Given this, I will be using <u>low corporate ownership</u> and <u>high owner occupancy rate</u> (and vice versa) interchangeably.</em></p>
+
+            <p>
+                Next I wanted to see if there is any common demographic characteristic among the neighborhoods with highest/lowest corporate ownership, and if there is any differences between them.
+            </p>
+
+			<figure class="figure">
+                <div class="two-cols">
+                    <figure class="subfigure">
+                        <img src="../../images/vis-class/occ_top_races.png" alt="Demographic distribution of different neighborhoods by race." />
+                        <figcaption>
+                        Neighborhoods with lowest corporate ownerships
+                        </figcaption>
+                    </figure>
+                    <figure class="subfigure">
+                        <img src="../../images/vis-class/occ_bottom_race.png" alt="Demographic distribution of different neighborhoods by race." />
+                        <figcaption>
+                            Neighborhoods with highest corporate ownerships
+                        </figcaption>
+                    </figure>
+                </div>
+                <figcaption>
+                Demographic distribution of different neighborhoods by race.
+                </figcaption>
+			</figure>
+
+            <p>
+                The neighborhoods with lower corporate ownership seem to have higher prpportion of african american population and are more diverse compared to those with higher corporate ownership. But the difference is not very generalizable as can be seen by example of West Roxbury which has one of lowest corporate ownership rates but also a big majority of white population. I suspect income might be a better indicator than race, but the dataset does not have income information.
+            </p>
+
+            <p>
+                Next I look at similar comparison but in terms of population living in group quarters. <em>"The Census Bureau classifies all people not living in housing units (house, apartment, mobile home, rented rooms) as living in group quarters." - <a href="https://www.census.gov/topics/income-poverty/poverty/guidance/group-quarters.html">Census Bureau</a>.</em>
+            </p>
+
+			<figure class="figure">
+                <div class="two-cols">
+                    <figure class="subfigure">
+                        <img src="../../images/vis-class/occ_top_group.png" alt="Demographic distribution of different neighborhoods by group housing type." />
+                        <figcaption>
+                        Neighborhoods with lowest corporate ownerships
+                        </figcaption>
+                    </figure>
+                    <figure class="subfigure">
+                        <img src="../../images/vis-class/occ_bottom_group.png" alt="Demographic distribution of different neighborhoods by group housing type." />
+                        <figcaption>
+                            Neighborhoods with highest corporate ownerships
+                        </figcaption>
+                    </figure>
+                </div>
+                <figcaption>
+                Demographic distribution of different neighborhoods by group quarter type.
+                </figcaption>
+			</figure>
+
+            <p>
+                This is a much cleaner distinction between the two groups. Low corporate ownership neighborhods seem to have few to none group quarters. So most people in these areas are living in eihter own house or apartments or rented rooms or mobile homes. But on the other hand, the neighborhoods with high corporate ownership tend to have higher group quarters. Among these, most of them seem to be college dormitories. This checks out given the presence of schools like Boston University, NorthEastern, Longwood medical area, etc in those neighborhoods. Since these are mostly students, it also makes sense that their residences are owned by corporations (most likely the college). So this context should be taken into account while doing any further analysis with the dataset.
+            </p>
+
+            <p>
+                Next, I analyze the density of people living per housing unit in different neighborhoods.
+            </p>
+
+			<figure class="figure">
+				<img src="../../images/vis-class/density.png" alt="Number of people in one residential unit in different neighborhoods." />
+				<figcaption>
+				Number of people in one residential unit in different neighborhoods.
+				</figcaption>
+			</figure>
+
+            <p>
+                The most prominent bar in the above chart is that of Longwood. As we saw in previous graph, around 80% of the population lives in college dorm in Longwood. So I suspect this is the reason for the unusually large number of people per unit in Longwood. Same reason explains Fenway being the neighborhood with second highest in the chart with 2.7 people per unit.
+            </p>
+
+            <p>
+                So I replot the graph without these two neighborhoods.
+            </p>
+
+            <figure class="figure">
+				<img src="../../images/vis-class/density_no_clg.png" alt="Number of people in one residential unit in different neighborhoods." />
+				<figcaption>
+				Number of people in one residential unit in different neighborhoods (after removing Longwood and Fenway).
+				</figcaption>
+			</figure>
+
+            <p>
+                Doing the same analysis as above to see the race composition of the top 3 (Dorchester, Hyde Park, Mattapan) and bottom 3 (Beacon Hill, South Boston Waterfront, West End) neighborhoods from the chart, we get the gollowing picture.
+            </p>
+
+            <figure class="figure">
+                <div class="two-cols">
+                    <figure class="subfigure">
+                        <img src="../../images/vis-class/density_top_races.png" alt="Demographic distribution of different neighborhoods by group race." />
+                        <figcaption>
+                        Neighborhoods with highest ratio of population to residential units
+                        </figcaption>
+                    </figure>
+                    <figure class="subfigure">
+                        <img src="../../images/vis-class/density_bottom_races.png" alt="Demographic distribution of different neighborhoods by group race." />
+                        <figcaption>
+                            Neighborhoods with lowest ratio of population to residential units
+                        </figcaption>
+                    </figure>
+                </div>
+                <figcaption>
+                Demographic distribution of different neighborhoods by race.
+                </figcaption>
+			</figure>
+
+            <p>
+                The figure above presents a contrasting picture of of the two group of neighborhoods. Those with less people per unit seem to be majority white whereas those with more people per unit seem to be mixed (Dorchester), if not majority black (Mattapan).
+            </p>
+
+            <p>
+                Next, I explore how common is it for units to be vacant in different neighborhoods.
+            </p>
+
+			<figure class="figure">
+				<img src="../../images/vis-class/occupancy_neighborhood.png" alt="Portion of residential units occupied." />
+				<figcaption>
+				Proportion of residential units in a neighborhood which are occupied.
+				</figcaption>
+			</figure>
+
+			<figure class="figure">
+				<img src="../../images/vis-class/occupancy_ownership.png" alt="Relation of corporate ownership rate and occupancy rate." />
+				<figcaption>
+				Corporate ownership rate in 2024 vs the occupancy rate from census.
+				</figcaption>
+			</figure>
+
+			<p>
+                Occupancy rate seems to be negatively correlated with the corporate ownership rate. South Boston Waterfront has the highest corporate ownership rate in 2024 at 38% but the lowest occupancy rate at 78%. On the other hand, Hyde Park has the lowest corporate ownership rate at 12% but highest occupancy rate at 96%.
+            </p>
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>
+                While corporate ownership of residences is rising throughout Boston, the core of the city has historically had the highest corporate ownership rate. But the outskirts of the city like Mattapan and Hyde Park which tends to be more diverse and/or black-majority will have a harder time if they face eviction because of the fact that 1 more person lives in a unit on average in these neighborhoods compared to white-majority neighborhoods like Beacon Hill and South Boston Waterfront (~2.5 people per unit vs ~1.5 people per unit).
+            </p>
+		</section>
+	</main>
+</body>
+</html>
