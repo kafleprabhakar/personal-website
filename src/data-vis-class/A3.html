@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="/css/data-vis.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Design
+		</h1>
+
+		<p>
+			<strong>Prabhakar Kafle</strong> — <em>pkafle@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>The Dataset</h2>
+			<p>
+				I am using US demographic data from the 1900 and 2000 census as was provided in the assignment. The dataset has male and female population binned by age group with 5-years intervals (0-4, 5-9, ..., 85-90, 90+).
+			</p>
+		</section>
+		<section>
+			<h2>Overarching question</h2>
+			<p>
+				What can this above dataset tell us about the state of the economy in 1900 and 2000?
+			</p>
+			<p>
+				Young children and elderly people are not part of the workforce. They normally depend on the working-age population for their needs. Plus the government also has to support these age agroup through spending in education, healthcare, and other social security programs. So the size of these three age group population- children, working-age, and elderly- could be a simple but effective proxy to understand the state of the economy. I want to visualize this.
+			</p>
+			<p>
+				One of the indicator used to measure this phenomena is the <a href="https://www.un.org/esa/sustdev/natlinfo/indicators/methodology_sheets/demographics/dependency_ratio.pdf" target="_blank">dependency ratio</a>. It is the ratio of the number of dependents (people younger than 15 or older than 64) to the number of working-age people (ages 15-64). I will be using this definition of dependent and independent population to visualize the dataset.
+			</p>
+		</section>
+		<section>
+			<h2>Phase One: Sketching Visualizations</h2>
+
+      		<figure class="figure">
+				<img src="/images/vis-class/a3/trend_sketch.jpg" alt="" />
+				<figcaption>
+					Trend in shift in population composition of different age groups between 1900 and 2000. The proportion of children has decreased while the proportion of working-age and elderly population has increased.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 1:
+			</p>
+
+			<ul>
+				<li>
+					The choice of an area graph was motivated by the question to see both the demographic composition in each year and also the trend over time. One can see the endlines on either side to see the composition of the population in that year. The trendlines show the trend in the composition of the population over time.
+				</li>
+				<li>
+					With this sketch, I wanted to visualize a trend in the composition of population of different dependent/independent population groups. But at the same time, I also wanted to preserve the finer age group trends. So I drew the distinct patterns (hatches and dots) and bold trend lines at 0, 15, and 65 years to draw the viewer's attention first to the trend in broader categories which more directly relates to the question in hand.
+				</li>
+				<li>
+					I decided to put the Y-axis label on both the sides to reduce any load on the viewer to see the y-value for eihter year.
+				</li>
+				<li>
+					The above decision also forced me to put the age boundaries somewhere else. I decided to put them in the middle of the lines with a discontinuity in the line. I think it does not add any clutter while making the age label pretty clear.
+				</li>
+				<li>
+					Although the trend is clear, I think the area graph does not draw viewer's attention to the difference in distribution of population. So in the next sketch I want to see if I can make the distribution more prominent.
+				</li>
+			</ul>
+
+      		<figure class="figure">
+				<img src="/images/vis-class/a3/pyramid_sketch.jpg" alt="" />
+				<figcaption>
+					Age pyramid for 1900 and 2000. The pyramid shows the distribution of population in different age groups. The pyramid for 1900 is more bottom-heavy while the pyramid for 2000 is more mid-heavy.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 2:
+			</p>
+
+			<ul>
+				<li>In order to be able to compare between the pyramids from two years, I converted the population data to percentage.</li>
+				<li>The bars are horizontal, thin, and have no spaceing between them so that the shape outlined by the bars can be seen prominently on the vertical axis.</li>
+				<li>The small size of the bars forced me to put the y-axis labels on the left side with horizontal guide lines. This adds to the visual clutter in the sketch.</li>
+				<li>I put the make and female population on either side of the Y-axis- one growing to the left, other growing to the right. While this separation of sexes does not contribute directly to understanding of the economic phenomena I am trying to visualize, it does make the shape of the pyramid more noticeable to the viewer.</li>
+				<li>The graph tells a story that the 1900 population has larger proportion of children (dependent) while the 2000 population is heavy on the mid-ages (working independent).</li>
+				<li>In the next sketch, I want to see if an aggregated form of the data can help visualize same information more succinctly.</li>
+			</ul>
+
+      		<figure class="figure">
+				<img src="/images/vis-class/a3/dependency_sketch.jpg" alt="" />
+				<figcaption>
+          			Visualizing Dependency ratio for 1900 and 2000- how many (child and elderly) dependents depend on an independent working-age person. The ratio of the length of dependent and independent bars gives this number.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 3:
+			</p>
+
+			<ul>
+				<li>I separat out dependent and independent population rather than stack them on a single bar. This makes it easier to compare them by just looking at the adjacent lendth of the bar.</li>
+				<li>I separate out child and elderly dependent population to show that the kind of dependent composition is also qualitatively different. This is also useful in understanding what kind of social security policies would need more spending.</li>
+				<li>While this is still a bar chart, a major decision I made is to make it horizontal and put the dependent population on top of independent. This serves two purposes. First, it gives a very clear idea of dependency ratio. The top (dependent) bar is like a numerator and the bottom (independent) bar is like denominator. So comparing the lengths of the bars gives a rough idea of dependency ratio easily. Second, it also aims to have this visual effect that the top (dependent) depends on the bottom (independent) bar. The smaller the top is compared to bottom, the more stable. And if the top os longer than the bottom, it denotes instability.</li>
+				<li>I believe the above design choices help the graph get to the core of the question inhand more succinctly than the previousl sketches.</li>
+			</ul>
+
+			<h3>Reflection</h3>
+
+			<p>
+				Sketch 1 is nice in that it shows trend across all the age groups and the overall dependent/independent categories. It would have been nicer to have data from more years so that the trend would be more meaningful. But regardless, I think it focuses more on the trend and does not make a very direct clear case for decreasing dependency ratio or anything about the economy. This is where the strength of the second and third sketches lie in my opinion. Both make it very clear the focus on the higher proportion of population in the middle/independent for 2000 compared to 1900 either through the shape of the graph (in sketch 2) or through direct comparison (in 3). The population pyramid in sketch 2 is more rich in terms of data as well as visual form (the shape communicates information) but does not directly talk about dependent and independent population. But it definitely is something I could improve on for the final design. So I will iterate on sketch 2 for the final design.
+
+			</p>
+
+		</section>
+
+		<section>
+			<h2>Phase Two: Final Design</h2>
+
+			<figure class="figure">
+				<img src="/images/vis-class/a3/pyramid.png" alt="Population pyramid graph" />
+				<figcaption>
+					Age pyramid for 1900 and 2000. The pyramid shows the distribution of population in different age groups. The pyramid for 1900 is more bottom (children population) heavy with an average of 0.62 dependents per working age person while the pyramid for 2000 is more mid (working-age) heavy with an average of 0.51 dependents per working age person.
+				</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Design Process & Design Decisions</h2>
+
+			<p>
+				The design for this final visualization was mostly borrowed from the second sketch. The use of horizontal bars on either side of the y-axis for male and female population really gives a very prominent noticeable shape to the graph. This shape in itself tells a story. The pyramid for 1900 is bottom heavy indicating a larger proportion of children- so a higher strain on the labor force to support them. On the other hand, the 2000 pyramid is more mid-heavy indicating larger proportion of working age population which is a sign of much healthier/growing economy. I made the following changes to make this more prominent in the graph:
+			</p>
+			<ol>
+				<li>Added the aggregate percentage of population in each of the dependent/independent groups as well as the dependency ratio. This was inspired by sketch 3 in which this was the central point. The original pyramid from sketch 2 lacked any direct aggregate. I believe adding the information would guide the viewer to think more about the decreasing dependency ratio in 2000 compared to 1900- which I am taking as a proxy for the state of the economy.</li>
+				<li>Added a gray background in the middle spanning 15-64 age group bars across both the pyramids. This divides up the graph into three parts- child dependent, independent, and old-age dependent without adding much visual clutter.</li>
+				<li>Moved the y-axis labels from left side to within the bars. This removes the need to put any horizontal grid lines and thus makes the background bit cleaner.</li>
+				<li>Changed the color pallete to something more cool and muted so as not to add too much contrast compared to other information int he graph (like the percentage of dependent/independent populations). This also blends in well with thr rest of the page.</li>
+			</ol>
+
+			<p>
+				To design this graph, I first of all converted the population data to percentage. Then I generated pyramids for both the yearswith a d3-based script from UNHCR <a href="https://dataviz.unhcr.org/tools/d3/d3_population_pyramid.html" target="_blank">here</a>. I modified the script to remove all elements other than the bars, x-axis ticks and the vertical grid lines and also decreased spacing between the bars. I exported this as svg and opened in illustrator for further customization. The colors, labels, background, title, and all annotated information were all added in Illustrator.
+			</p>
+			<h3>Reflection</h3>
+
+			<p>
+				As I mentioned in previous slide, brainstorming about sketches gave me this thought to make dependent/independent population more obvious in the pyramid too. Apart from that, the sketches did not influence my design much- what I had in mind for sketch 2 more or less stayed constant. This is probably because I have studied these population pyramid and demographic trends before which influenced the design decisions to some extent. But I can definitely see how sketching can help influence refining the design even more.
+			</p>
+		</section>
+	</main>
+</body>
+</html>
