@@ -1,0 +1,153 @@
+---
+permalink: false
+---
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/css/test.css" />
+<!-- Include d3 library -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<!-- Create a container to host the chart -->
+<main>
+    <div class="container">
+        <div id="p1900" class="graph"></div>
+        <div id="p2000" class="graph"></div>
+    </div>
+    <div class="links">
+        <a href="#" id="p19-link">Download 1990</a>
+        <a href="#" id="p20-link">Download 2000</a>
+    </div>
+</main>
+<script>
+    // set the dimensions and margins of the graph
+    const margin = {top: 60, right: 20, bottom: 50, left: 60};
+    const width = 450 - margin.left - margin.right;
+    const height = 550 - margin.top - margin.bottom;
+
+    const chartData = (data, container, numTicks) => {
+        console.log({data, container});
+        // append the svg object to the body of the page
+        const svg = container
+            .append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", "0 0 450 550")
+            .attr("preserveAspectRatio", "xMinYMin")
+            .append("g")
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+        
+        // X scale and Axis
+        // const numTicks = Math.max(d3.max(data, d => +d.male), d3.max(data, d => +d.female)) + 1
+        // console.log({numTicks})
+        const xScaleMale = d3.scaleLinear()
+        .domain([0, d3.max(data, d => +d.male)])
+        .range([width/2, 0]);
+        svg
+        .append("g")
+            .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(xScaleMale).tickSize(0).tickPadding(3).ticks(numTicks, "%"))
+        .call(function(d) { return d.select(".domain").remove()});
+
+        const xScaleFemale = d3.scaleLinear()
+        .domain([0, d3.max(data, d => +d.female)])
+        .range([width/2, width]);
+        svg
+        .append("g")
+            .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(xScaleFemale).tickSize(0).tickPadding(3).ticks(numTicks, "%"))
+        .call(function(d) { return d.select(".domain").remove()});
+
+        // set vertical grid line
+        const GridLineF = function() { return d3.axisBottom().scale(xScaleFemale)};
+        svg
+        .append("g")
+            .attr("class", "grid")
+        .call(GridLineF()
+            .tickSize(height,0,0)
+            .tickFormat("")
+            .ticks(7)
+        );
+        const GridLineM = function() { return d3.axisBottom().scale(xScaleMale)};
+        svg
+        .append("g")
+            .attr("class", "grid")
+        .call(GridLineM()
+            .tickSize(height,0,0)
+            .tickFormat("")
+            .ticks(7)
+        );
+
+        // Y scale and Axis
+        const yScale = d3.scaleBand()
+            .domain(data.map(d => d.ages))
+            .range([height, 0])
+            .padding(.15);
+        svg
+            .append("g")
+            .call(d3.axisLeft(yScale).tickSize(0).tickPadding(15))
+            .call(d => d.select(".domain").remove());
+
+        // create male bars
+        svg
+        .selectAll(".maleBar")
+            .data(data)
+        .join("rect")
+            .attr("class", "barMale")
+            .attr("x", d => xScaleMale(d.male))
+            .attr("y", d => yScale(d.ages))
+            .attr("width", d => width/2 - xScaleMale(d.male))
+            .attr("height", yScale.bandwidth())
+            .style("fill", "#18375F")
+
+        // create female bars
+        svg
+            .selectAll(".femaleBar")
+            .data(data)
+            .join("rect")
+            .attr("class", "barFemale")
+            .attr("x", xScaleFemale(0))
+            .attr("y", d => yScale(d.ages))
+            .attr("width", d => xScaleFemale(d.female) - xScaleFemale(0))
+            .attr("height", yScale.bandwidth())
+            .style("fill", "#0072BC")
+        }
+
+    const getLink = (svg) => {
+        //get svg source.
+        var serializer = new XMLSerializer();
+        var source = serializer.serializeToString(svg);
+
+        //add name spaces.
+        if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+            source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+        }
+        if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+            source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+        }
+
+        //add xml declaration
+        source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+
+        //convert svg source to URI data scheme.
+        var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+        return url;
+    }
+    
+    // parse the Data
+    d3.csv("/files/p1990.csv")
+        .then((data) => {
+            chartData(data, d3.select("#p1900"), 7);
+            const svg90 = document.getElementById("p1900").querySelector("svg");
+            document.getElementById("p19-link").href = getLink(svg90);
+        });
+    d3.csv("/files/p2000.csv")
+        .then((data) => {
+            chartData(data, d3.select("#p2000"), 5);
+            const svg00 = document.getElementById("p2000").querySelector("svg");
+            document.getElementById("p20-link").href = getLink(svg00);
+        });
+
+    // get the svg
+    
+    
+</script>
